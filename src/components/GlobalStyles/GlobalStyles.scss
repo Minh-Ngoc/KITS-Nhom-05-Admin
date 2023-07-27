@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color-white: #FFF;
+    --text-color-black: #000;
+    --text-color-red: #EB5757;
+    --text-color-grey: #8A92A6;
+
+    --color-red-600: #DC2626;
+    --color-red-500: #EF4444;
+    --color-red-300: #FCA5A5;
+    --color-red-100: #FEE2E2;
+    --color-red-50: #FEF2F2;
+
+    --color-primary-500: #0EA5E9;
+    --color-primary-400: #38BDF8;
+    --color-primary-300: #7DD3FC;
+    --color-primary-100: #E0F2FE;
+
+    --color-gray-800: #1E293B;
+    --color-gray-600: #475569;
+    --color-gray-500: #64748B;
+    --color-gray-400: #94A3B8;
+    --color-gray-300: #CBD5E1;
+    --color-gray-200: #E2E8F0;
+    --color-gray-100: #F1F5F9;
+
+    --color-green-600: #16A34A;
+    --color-green-400: #4ADE80;
+    --color-green-100: #DCFCE7;
+
+    --color-yellow-600: #CA8A04;
+    --color-yellow-100: #FEF9C3;
+
+    // Font-size: 36px
+    --text-size-36: 36px;
+    --text-height-36: 40px;
+
+    // Font-size: 24px
+    --text-size-24: 24px;
+    --text-height-24: 32px;
+
+    // Font-size: 16px
+    --text-size-16: 16px;
+    --text-height-16: 24px;
+
+    // Font-size: 14px
+    --text-size-14: 14px;
+    --text-height-14: 20px;
+
+
+    // Font-size: 12px
+    --text-size-12: 12px;
+    --text-height-12: 18px;
+}   
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.modal-title-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+
+    h3 {
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: var(--text-size-24);
+        line-height: var(--text-height-24);
+        color: var(--color-gray-500);
+        font-weight: 400;
+    }
+
+    .modal-btn-add {
+        background-color: var(--text-color-red);
+        padding: 8px 16px;
+        border-radius: 4px;
+        position: relative;
+        transition: 0.3s ease all;
+        z-index: 1;
+    
+        span {
+            color: var(--text-color-white);
+            font-size: var(--text-size-14);
+            line-height: var(--text-height-14);
+            font-weight: 800;
+        }
+    
+        &:before {
+            transition: 0.5s all ease;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            right: 50%;
+            bottom: 0;
+            opacity: 0;
+            content: '';
+            background-color: var(--color-red-50);
+            z-index: -1;
+        }
+        &:hover, &:focus {
+            box-shadow: 0 2px 2px var(--text-color-red), 0 2px 2px var(--text-color-red);
+    
+            span {
+                color: var(--text-color-red);
+            }
+        }
+        &:hover:before, &:focus:before {
+            transition: 0.5s all ease;
+            left: 0;
+            right: 0;
+            opacity: 1;
+        }
+    
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+}

@@ -1,0 +1,175 @@
+.product-add {
+    margin: 2rem 0;
+    min-width: 900px;
+
+    h2 {
+        font-size: var(--text-size-24);
+        line-height: var(--text-height-24);
+        color: var(--color-gray-500);
+        font-weight: 400;
+    }
+
+    form {
+        padding: 2rem 0;
+    }
+
+    .form-control {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        font-family: 'Nunito Sans', sans-serif;
+
+        p {
+            min-width: max-content;
+            width: 14%;
+            color: var(--color-gray-500);
+
+            span {
+                color: var(--text-color-red);
+            }
+        }
+        .form-control-ip {
+            width: 90%;
+        }
+    }
+    .quantity {
+        margin-top: 1rem;
+
+        input {
+            width: 200px;
+        }
+    }
+    .price {
+        margin-top: 1rem;
+
+        input {
+            width: 200px;
+        }
+    }
+    .category {
+        padding: 10px 0;
+        visibility: visible;
+        opacity: 1;
+        transition: all .3s ease;
+
+        p {
+            width: 13.2%;
+        }
+
+        .category__container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .hidden {
+                visibility: hidden;
+                opacity: 0;
+                transition: all .3s ease;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            .input {
+                visibility: visible;
+                opacity: 1;
+                transition: all .3s ease;
+            }
+
+            .btn-other button {
+                min-width: 100px;
+            }
+
+            .other {
+                opacity: 0;
+                transition: all .3s ease;
+                visibility: hidden;
+                display: none;
+            }
+        }
+    }
+
+    
+    .btn-action {
+        display: flex;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    .btn-action button, .category button, .btn-action .cancel {
+        background-color: var(--text-color-red);
+        color: var(--text-color-white);
+        font-size: var(--text-size-14);
+        line-height: var(--text-height-14);
+        font-weight: 800;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: 0.3s ease all;
+        z-index: 1;
+        position: relative;
+        width: 15%;
+        min-width: 100px;
+        
+        svg {
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            left: -2rem;
+            transition: all .3s ease-out;
+        }
+
+        span {
+            color: var(--text-color-white);
+            transition: all .3s ease-in;
+            cursor: pointer;
+        }
+
+        &:before {
+            transition: 0.5s all ease;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            right: 50%;
+            bottom: 0;
+            opacity: 0;
+            content: '';
+            background-color: var(--color-red-50);
+            z-index: -1;
+        }
+        &:hover, &:focus {
+            box-shadow: 0 2px 2px var(--text-color-red), 0 2px 2px var(--text-color-red);
+
+            span {
+                transition: all .3s ease-out;
+                color: var(--text-color-red);
+                cursor: pointer;
+            }
+        }
+        &:hover:before, &:focus:before {
+            transition: 0.5s all ease;
+            left: 0;
+            right: 0;
+            opacity: 1;
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+    .cancel {
+        background-color: var(--color-primary-500) !important;
+
+        &::before {
+            background-color: var(--color-primary-100) !important;
+        }
+
+        &:hover, &:focus {
+            box-shadow: 0 2px 2px var(--color-primary-500), 0 2px 2px var(--color-primary-500) !important;
+
+            span {
+                transition: all .3s ease-out;
+                color: var(--color-primary-500) !important;
+                cursor: pointer;
+            }
+        }
+    }
+}

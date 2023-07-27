@@ -1,0 +1,53 @@
+.header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--text-color-white);
+    z-index: 99;
+
+    .logo {
+        width: calc(2/12 * 100%);
+        padding: 1rem 4rem;
+    }
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        padding: 1rem 4rem;
+
+        .search {
+            width: 25%;
+
+            label {
+                left: 40px;
+            }
+
+            input {
+                background-color: var(--color-gray-100);
+                border-radius: 999px;
+            }
+        }
+        .menu {
+            display: flex;
+            
+            gap: 1rem;
+    
+            .menu__notification {
+                display: flex;
+                align-items: center;
+            }
+            .menu__user {
+                span {
+                    font-size: var(--text-size-14);
+                    line-height: var(--text-height-14);
+                    font-weight: 600;
+                    color: var(--color-gray-600);
+                }
+            }
+        }
+    }
+}

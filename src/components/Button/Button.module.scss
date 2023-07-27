@@ -1,0 +1,32 @@
+.button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-gray-600);
+
+    span {
+        color: var(--color-gray-600);
+        font-size: var(--text-size-16);
+        line-height: var(--text-height-16);
+        font-family: 'Nunito Sans', sans-serif;
+    }
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    
+    span {
+        color: var(--text-color-black);
+        font-size: var(--text-size-16);
+        line-height: var(--text-height-16);
+        font-family: 'Nunito Sans', sans-serif;
+    }
+
+}

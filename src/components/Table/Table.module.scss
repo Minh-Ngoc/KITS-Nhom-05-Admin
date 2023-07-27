@@ -1,0 +1,15 @@
+.btnAction {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 100px;
+}
+
+.btnAction {
+    svg:first-child:hover path {
+        stroke: var(--color-green-600);
+    }
+    svg:last-child:hover path {
+        stroke: var(--text-color-red);
+    }
+}

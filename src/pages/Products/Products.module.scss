@@ -1,0 +1,98 @@
+.products {
+    margin: 2rem 0;
+}
+.statistics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .pie-chart {
+    }
+    .tooltip {
+        flex: 1;
+
+        .tooltip__item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            min-width: max-content;
+
+            .tooltip__item-color {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+            }
+            .tooltip__item-label {
+                font-size: var(--text-size-14);
+                line-height: var(--text-height-14);
+            }
+        }
+    }
+}
+.content {
+    margin: 1.5rem 0;
+
+    h3 {
+        font-size: var(--text-size-24);
+        line-height: var(--text-height-24);
+        color: var(--color-gray-500);
+        font-weight: 400;
+    }
+    .content__btn {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1rem 0;
+        
+        .content__btn-search {
+            min-width: 25%;
+            
+            label {
+                left: 40px;
+            }
+            input {
+                border-radius: 999px;
+            }
+        }
+        .content__btn-add {
+            background-color: var(--text-color-red);
+            color: var(--text-color-white);
+            font-size: var(--text-size-14);
+            line-height: var(--text-height-14);
+            font-weight: 800;
+            padding: 8px 16px;
+            border-radius: 4px;
+            position: relative;
+            transition: 0.3s ease all;
+            z-index: 1;
+
+            &:before {
+                transition: 0.5s all ease;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                right: 50%;
+                bottom: 0;
+                opacity: 0;
+                content: '';
+                background-color: var(--color-red-50);
+                z-index: -1;
+            }
+            &:hover, &:focus {
+                color: var(--text-color-red);
+                box-shadow: 0 2px 2px var(--text-color-red), 0 2px 2px var(--text-color-red);
+            }
+            &:hover:before, &:focus:before {
+                transition: 0.5s all ease;
+                left: 0;
+                right: 0;
+                opacity: 1;
+            }
+
+            &:active {
+                transform: scale(0.9);
+            }
+        }
+    }
+}

@@ -1,0 +1,104 @@
+.container {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    bottom: 0;
+    width: calc(2/12 * 100%);
+    padding: .5rem 2rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background-color: var(--color-gray-100);
+    height: 100%;
+
+    .menu {
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+
+            svg {
+                width: max-content;
+            }
+            span {
+                flex: 1;
+                color: var(--color-gray-500);
+                font-size: var(--text-size-16);
+                line-height: var(--text-height-16);
+                font-weight: 400;
+            }
+        }
+        .menu-item:hover {
+            svg path {
+                fill: var(--text-color-red);
+                stroke: var(--text-color-red);
+            }
+            span {
+                color: var(--text-color-red);
+            }
+        }
+        .menu-item svg:first-child {
+            width: 24px;  
+        }
+        .menu-item svg:last-child {
+            transition: transform .3s ease-in;   
+        }
+
+        .subMenu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            visibility: visible;
+            margin-top: 10px;
+            opacity: 1;
+            transition: all .3s ease-in;
+
+            .subMenu__item {
+                margin-top: 10px;
+                cursor: pointer;
+
+                svg {
+                    visibility: hidden;
+                }
+                span {
+                    margin-left: 10px;
+                }
+            }
+            .subMenu__item:hover {
+                color: var(--text-color-red);
+            }
+
+            .active {
+                color: var(--text-color-red);
+                font-weight: 800;
+            }
+        }
+    }
+    .menu:has(.active) {
+        .menu-item {
+            svg path {
+                fill: var(--text-color-red);
+                stroke: var(--text-color-red);
+            }
+            span {
+                color: var(--text-color-red);
+                font-weight: 800;
+            }
+        }
+    } 
+    .rotate {
+        .menu-item svg:last-child {
+            transform: rotate(90deg);  
+            transition: transform .3s ease-in;   
+        }
+        .subMenu {
+            visibility: hidden;
+            margin-top: -100%;
+            opacity: 0;
+            transition: all .3s ease-in;
+        }
+
+    }
+}

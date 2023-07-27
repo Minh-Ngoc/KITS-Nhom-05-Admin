@@ -1,0 +1,129 @@
+.image-uploader {
+    flex: 1;
+
+    .btn-upload-file {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    
+        .btn-choose-image {
+            background-color: var(--text-color-red);
+            color: var(--text-color-white);
+            font-size: var(--text-size-14);
+            line-height: var(--text-height-14);
+            font-weight: 800;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: 0.3s ease all;
+            z-index: 1;
+            position: relative;
+            
+            svg {
+                position: absolute;
+                visibility: hidden;
+                opacity: 0;
+                left: -2rem;
+                transition: all .3s ease-out;
+            }
+    
+            span {
+                color: var(--text-color-white);
+                transition: all .3s ease-in;
+                cursor: pointer;
+            }
+    
+            &:before {
+                transition: 0.5s all ease;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                right: 50%;
+                bottom: 0;
+                opacity: 0;
+                content: '';
+                background-color: var(--color-red-50);
+                z-index: -1;
+            }
+            &:hover, &:focus {
+                box-shadow: 0 2px 2px var(--text-color-red), 0 2px 2px var(--text-color-red);
+    
+                svg {
+                    visibility: visible;
+                    opacity: 1;
+                    left: 10px;
+                    transition: all .3s ease-in;
+    
+                    path {
+                        stroke: var(--text-color-red);
+                    }
+                }
+    
+                span {
+                    margin-left: 1.7rem;
+                    transition: all .3s ease-out;
+                    color: var(--text-color-red);
+                    cursor: pointer;
+                }
+            }
+            &:hover:before, &:focus:before {
+                transition: 0.5s all ease;
+                left: 0;
+                right: 0;
+                opacity: 1;
+            }
+
+            &:active {
+                transform: scale(0.9);
+            }
+        }
+    
+        .upload {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .image-show {
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .image-item {
+            position: relative;
+            width: max-content;
+            animation: show .3s ease-in;
+
+            img {
+                width: 200px;
+                height: auto;
+                transition: all .3s ease-in;
+            }
+    
+            .image-item__delete {
+                position: absolute;
+                right: 6px;
+                top: 6px;
+                padding: 0;
+
+                svg path {
+                    stroke: var(--color-red-500);
+                }
+            }
+
+            @keyframes show {
+                from {
+                    opacity: 0;
+                    margin-bottom: 3rem;
+                }
+                to {
+                    opacity: 1;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    
+}
