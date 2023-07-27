@@ -1,4 +1,4 @@
-export const DOMAIN = "http://localhost:8080";
+export const DOMAIN = "http://18.140.101.238:8085";
 
 export const LOGIN_USER = `${DOMAIN}/api/login`;
 
