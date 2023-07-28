@@ -7,7 +7,7 @@ import FormInput from 'components/FormInput'
 import ImageUploader from "components/ImageUploader";
 import styles from './ProductAdd.module.scss';
 import Button from "components/Button";
-
+import { DOMAIN } from "api"
 // Library UI
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
@@ -57,9 +57,9 @@ function ProductAdd() {
     //  Get data from API
     useEffect(() => {
         async function callAPI(){
-            const categoryList = "http://localhost:8080/category/getallcategory";
-            const SizeList = "http://localhost:8080/sizes/getallsize";
-            const ColorList = "http://localhost:8080/colors/getallcolor";
+            const categoryList = `${DOMAIN}/category/getallcategory`;
+            const SizeList = `${DOMAIN}/sizes/getallsize`;
+            const ColorList = `${DOMAIN}/colors/getallcolor`;
             
             // make the API call
             await Promise.all([axios.get(categoryList), axios.get(SizeList), axios.get(ColorList)])
@@ -111,7 +111,7 @@ function ProductAdd() {
     // Handle add new Category
     const btnAddNewCategory = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8080/category/add", { 
+        axios.post(`${DOMAIN}/category/add`, { 
                 categoryName: newCategory
             })
             .then(res => {
@@ -127,7 +127,7 @@ function ProductAdd() {
     // Handle add new Size
     const btnAddNewSize = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8080/sizes/add", { 
+        axios.post(`${DOMAIN}/sizes/add`, { 
                 sizeName: newSize
             })
             .then(res => {
@@ -144,7 +144,7 @@ function ProductAdd() {
     const btnAddNewColor = (e) => {
         e.preventDefault();
         
-        axios.post("http://localhost:8080/colors/add", { 
+        axios.post(`${DOMAIN}/colors/add`, { 
                 colorName: newColor
             })
             .then(res => {
@@ -167,7 +167,7 @@ function ProductAdd() {
             })
         }
 
-        axios.post("http://localhost:8080/stocks/add_stock_new_product", {
+        axios.post(`${DOMAIN}/stocks/add_stock_new_product`, {
             quantityStock: quantity,
             priceStock: price,
             product:{ 
