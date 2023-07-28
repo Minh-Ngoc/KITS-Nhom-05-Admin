@@ -1,4 +1,5 @@
-export const DOMAIN = "http://18.140.101.238:8085";
+// export const DOMAIN = "http://18.140.101.238:8085";
+export const DOMAIN = "https://danielaws.tk/group5";
 
 export const LOGIN_USER = `${DOMAIN}/api/login`;
 
