@@ -12,27 +12,35 @@ const cx = classNames.bind(styles);
 function Home() {
     const dispatch = useDispatch();
     const products = useSelector(state => state.products.productList);
+    const users = useSelector(state => state.users.userList);
     const orderStatistics = useSelector(state => state.orders.orderStatistics);
 
     useEffect(() => {
         dispatch.products.fetchProducts();
+        dispatch.users.fetchUsers();
         dispatch.orders.statisticOrderByMonth();
     }, [dispatch.products]);
+
+    const totalSale = orderStatistics && orderStatistics.map(order => {
+        let sum = 0;
+        sum += order.numberorder;
+        return sum;
+    })
 
     const cards = products && [
         {
             label: 'Total Visits',
             icon: <BarIcon />,
             color: 'red',
-            value: 7.7,
-            unit: 'M',
+            value: 43,
+            unit: '',
         },
         {
             label: 'Total Sales',
             icon: <CartIcon />,
             color: 'primary',
-            value: 777,
-            unit: 'k',
+            value: totalSale,
+            unit: '',
         },
         {
             label: 'Total Products',
@@ -45,8 +53,8 @@ function Home() {
             label: 'Total Customers',
             icon: <EmojiiIcon />,
             color: 'gray',
-            value: 7.7,
-            unit: 'k',
+            value: users?.length,
+            unit: '',
         },
     ];
 
@@ -58,7 +66,7 @@ function Home() {
             value={card.value}
             unit={card.unit}
             color={card.color}
-        />
+        />  
     ));
 
     const data = orderStatistics && orderStatistics.map(order => {
