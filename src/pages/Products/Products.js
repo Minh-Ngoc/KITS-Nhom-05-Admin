@@ -132,7 +132,7 @@ function Products() {
 
     // Create values data
     const rows = products?.map(pd => 
-        createData(pd.productId, pd.productName, <ImageProduct src={pd.image || pd.urlImage} /> , pd.brand, pd.category, <Eye onClick={() => handleOpenModal(pd)}/>)
+        createData(pd.productId, pd.productName, <ImageProduct src={pd.image || pd.urlImage} /> , pd.brand, pd.category || pd.categoryName, <Eye onClick={() => handleOpenModal(pd)}/>)
     );
 
     // Handle edit product
