@@ -157,6 +157,10 @@ function ProductAdd() {
             .catch(err => {})
     }
 
+    const goBack = () => {
+		navigate(-1);
+	}
+
     // Handle submit form to add product
     const handleSubmit = e => { 
         e.preventDefault();
@@ -196,6 +200,7 @@ function ProductAdd() {
                 setBrand("");
                 setDescription("");
                 setImages("");
+                goBack();
                 toast.success("ADD NEW PRODUCT SUCCESSFULY !", {
                     position: toast.POSITION.TOP_CENTER
                 });
@@ -204,10 +209,6 @@ function ProductAdd() {
                 position: toast.POSITION.TOP_CENTER
             }))
     }
-
-    const goBack = () => {
-		navigate(-1);
-	}
 
     return (
         <Wrapper className={cx('product-add')}>
