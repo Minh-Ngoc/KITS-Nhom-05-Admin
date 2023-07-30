@@ -140,6 +140,18 @@ function Orders() {
             label: 'Name',
         },
         {
+            id: 'color',
+            numeric: 'center',
+            disablePadding: false,
+            label: 'Color',
+        },
+        {
+            id: 'size',
+            numeric: 'center',
+            disablePadding: false,
+            label: 'Size',
+        },
+        {
             id: 'quantity',
             numeric: 'center',
             disablePadding: false,
@@ -150,18 +162,6 @@ function Orders() {
             numeric: 'center',
             disablePadding: false,
             label: 'Price',
-        },
-        {
-            id: 'size',
-            numeric: 'center',
-            disablePadding: false,
-            label: 'Size',
-        },
-        {
-            id: 'color',
-            numeric: 'center',
-            disablePadding: false,
-            label: 'Color',
         },
     ];
     // Create keys data
