@@ -15,7 +15,7 @@ const cx = classNames.bind(styles);
 function Orders() {
     const dispatch = useDispatch();
     const orders = useSelector((state) => state.orders);
-    const [selectedProduct, setSelectedOrder] = useState({ modal: false, order: '' });
+    const [selectedProduct, setSelectedProduct] = useState({ modal: false, order: '' });
 
     useEffect(() => {
         dispatch.orders.statisticOrderByMonth();
@@ -69,7 +69,7 @@ function Orders() {
     //Handle open/close modal
     const handleOpenModal = async(order) => {
         await dispatch.orders.getOrderById(order.orderid)
-        setSelectedOrder({ modal: !selectedProduct.modal, order });
+        setSelectedProduct({ modal: !selectedProduct.modal, order });
     }
 
      // Create head cell
@@ -122,6 +122,9 @@ function Orders() {
     );
 
     //* *************************  ORDER DETAIL ****************************************** *//
+    const handleSetModal = (state) => {
+        setSelectedProduct(state)
+    }
 
     const headCellsPdDetail = [
         {
@@ -221,7 +224,12 @@ function Orders() {
                     />
                 </div>
             </div>
-            <Modal title={TitleOrderModal} content={TableOrderDetail} selectedProduct={selectedProduct} />
+            <Modal 
+                title={TitleOrderModal} 
+                content={TableOrderDetail} 
+                selectedProduct={selectedProduct} 
+                handleSetModal={handleSetModal}
+            />
         </Wrapper>
     )
 }

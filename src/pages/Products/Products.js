@@ -156,6 +156,9 @@ function Products() {
         console.log(arr)
     }
     //* *************************  PRODUCT DETAIL ****************************************** *//
+    const handleSetModal = (state) => {
+        setSelectedProduct(state)
+    }
     // Title modal content product detail
     const headCellsPdDetail = [
         {
@@ -303,7 +306,12 @@ function Products() {
                     />
                 </div>
             </div>
-            <Modal title={TitleProductModal} content={TablePdDetail} selectedProduct={selectedProduct} />
+            <Modal 
+                title={TitleProductModal} 
+                content={TablePdDetail} 
+                selectedProduct={selectedProduct} 
+                handleSetModal={handleSetModal}
+            />
         </Wrapper>
     )
 }

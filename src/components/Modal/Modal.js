@@ -4,7 +4,7 @@ import ModalClose from '@mui/joy/ModalClose';
 import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
 
-export default function BasicModal({ selectedProduct, title, content }) {
+export default function BasicModal({ selectedProduct, handleSetModal, title, content }) {
     const [open, setOpen] = React.useState(false);
     
      // Set state `selectedProduct` khi nhận được props `selectedProduct` mới
@@ -19,7 +19,10 @@ export default function BasicModal({ selectedProduct, title, content }) {
             aria-labelledby="modal-title"
             aria-describedby="modal-desc"
             open={open}
-            onClose={() => setOpen(!open)}
+            onClose={() => {
+                setOpen(!open);
+                handleSetModal(open);
+            }}
             sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         >
             <Sheet
