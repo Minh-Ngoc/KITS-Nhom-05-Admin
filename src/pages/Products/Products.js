@@ -11,8 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useCallback, useEffect, useState } from "react";
 import Modal from "components/Modal";
 import ProductDetailAdd from "./ProductDetailAdd";
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
+import ImageProduct from "components/ImageProduct";
 
 const cx = classNames.bind(styles);
 
@@ -131,14 +130,9 @@ function Products() {
         };
     }
 
-    const ImageProduct = (src) => (
-        <Stack direction="row" spacing={2} justifyContent="center">
-            <Avatar alt="" src={src} />
-        </Stack>
-    )
     // Create values data
     const rows = products?.map(pd => 
-        createData(pd.productId, pd.productName, ImageProduct(pd.image) , pd.brand, pd.category, <Eye onClick={() => handleOpenModal(pd)}/>)
+        createData(pd.productId, pd.productName, <ImageProduct src={pd.image || pd.urlImage} /> , pd.brand, pd.category, <Eye onClick={() => handleOpenModal(pd)}/>)
     );
 
     // Handle edit product
