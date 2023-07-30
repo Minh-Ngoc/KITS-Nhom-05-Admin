@@ -6,10 +6,12 @@ import Button from "components/Button";
 import { Logo, SearchIcon, NotificationIcon, avatar, ArrowBottomIcon } from 'components/ImageList'
 import Input from "components/Input";
 import { Link } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const cx = classNames.bind(styles);
 
 function Header() {
+    const username = Cookies.get("username");
     return (
         <Wrapper className={cx('header')}>
             <Link className={cx('logo')} to="/">
@@ -28,7 +30,7 @@ function Header() {
                         type="button" 
                         srcLeft={avatar} 
                         alt="Avatar-error" 
-                        content="luanvuong" 
+                        content={username} 
                         srcRight={<ArrowBottomIcon />}
                     />
                 </div>
