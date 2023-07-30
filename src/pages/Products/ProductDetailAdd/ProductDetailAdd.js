@@ -57,9 +57,8 @@ function ProductDetailAdd(props) {
     // Handle add new Size
     const btnAddNewSize = (e) => {
         e.preventDefault();
-        dispatch.sizes.addSize({ sizeName: newSize})
+        dispatch.sizes.addSize(newSize)
             .then(res => {
-                dispatch.sizes.setSizes(res.data.size)
                 setBtnAdd({ ...btnAdd, size: !btnAdd.size });
             })
             .catch(err => {})
@@ -68,7 +67,7 @@ function ProductDetailAdd(props) {
     // Handle add new Color
     const btnAddNewColor = (e) => {
         e.preventDefault();
-        dispatch.sizes.addSize({ colorName: newColor })
+        dispatch.colors.addColor(newColor)
             .then(res => {
                 setBtnAdd({ ...btnAdd, color: !btnAdd.color });
             })

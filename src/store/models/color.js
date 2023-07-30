@@ -19,14 +19,13 @@ export const colors = {
       // handle state changes with impure functions.
       // use async/await for async actions
         fetchColors() {
-            axios.get(GET_COLOR)
+          axios.get(GET_COLOR)
             .then(res => this.setColors(res.data.color))
             .catch(err => console.log(err))
       },
         addColor(data) {
-            axios.post(ADD_COLOR, data)
-                .then(res => this.setColors(res.data.color))
-                .catch(err => console.log(err))
+          axios.post(ADD_COLOR, data)
+            .then(res => this.setColors(res.data.color))
       }
     }),
     selectors: (slice, createSelector) => ({

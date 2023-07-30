@@ -26,7 +26,6 @@ export const categories = {
         addCategory(data) {
             axios.post(ADD_CATEGORY, data)
                 .then(res => this.setCategories(res.data.category))
-                .catch(err => console.log(err))
       }
     }),
     selectors: (slice, createSelector) => ({

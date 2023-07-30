@@ -26,7 +26,6 @@ export const sizes = {
         addSize(data) {
             axios.post(ADD_SIZE, data)
                 .then(res => this.setSizes(res.data.size))
-                .catch(err => console.log(err))
       }
     }),
     selectors: (slice, createSelector) => ({
