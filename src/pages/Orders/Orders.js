@@ -67,9 +67,9 @@ function Orders() {
     )
 
     //Handle open/close modal
-    const handleOpenModal = (order) => {
+    const handleOpenModal = async(order) => {
+        await dispatch.orders.getOrderById(order.orderid)
         setSelectedOrder({ modal: !selectedProduct.modal, order });
-        dispatch.orders.getOrderById(order.orderid)
     }
 
      // Create head cell

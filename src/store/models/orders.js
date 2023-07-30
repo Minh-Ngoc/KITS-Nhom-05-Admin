@@ -36,15 +36,15 @@ export const orders = {
                 .then(res => this.setOrders(res.data.orderwithusername))
                 .catch(err => console.log(err))
         },
-        getOrderById(orderId) {
-            axios.get(GET_ORDER_BY_ID, { params: { orderIds: orderId } })
+        async getOrderById(orderId) {
+            await axios.get(GET_ORDER_BY_ID, { params: { orderIds: orderId } })
                 .then(res => this.setOrder(res.data.orderwithusername))
                 .catch(err => toast.error("GET ORDERS FAILURE", {
                     position: toast.POSITION.TOP_CENTER,
                 }))
         },
-        statisticOrderByMonth() {
-            axios.get(STATISTIC_ORDER_BY_MONTH) 
+        async statisticOrderByMonth() {
+            await axios.get(STATISTIC_ORDER_BY_MONTH) 
                 .then(res => this.setOrdersByMonth(res.data.orderstatistics))
                 .catch(err => console.log(err))
         }
